@@ -1,0 +1,111 @@
+/* ── Rofi Theme ──────────────────────────────
+   °˖* ૮(  • ᴗ ｡)っ🍸 pewdiepie/archdaemon/dionysh
+   shhheersh
+   Vers 1.2 - Fix image bleed on right side
+   Description: Custom styling for Rofi launcher
+   ─────────────────────────────────────────── */
+
+/* Global defaults */
+* {
+  font: "JetBrainsMono Nerd Font 11";
+  // blur: true; // Removed blur for a solid look like Waybar
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 0px; // remove default rounding globally
+}
+
+/* ── Window ──────────────────────────────── */
+window {
+  width: 750px;
+  height: 625px;
+  location: center;
+  // blur: true; // Removed blur for a solid look like Waybar
+  border: 3px; // Set to 3px to match waybar's border width
+  border-radius: 2px; // Matching #waybar's border-radius
+  border-color: #363636; // Matching waybar's border color
+  background-color: #141414; // Solid black background, matching window#waybar
+  padding: 0px;
+  margin: 30px 50px;
+}
+
+/* ── Layout ──────────────────────────────── */
+mainbox {
+  orientation: horizontal;
+  children: [ "borderbox" ];
+  spacing: 0px;
+  padding: 0px;
+}
+
+borderbox {
+  orientation: horizontal;
+  children: [ "imagebox", "contentbox" ];
+  padding: 0px;
+  spacing: 0px;
+  border-radius: 2px; // Matching window's border-radius
+  // Added fixed width to borderbox to fully contain its children
+  // 300px (imagebox) + 450px (contentbox, which is window_width - imagebox_width)
+  width: 750px;
+}
+
+contentbox {
+  orientation: vertical;
+  children: [ "entry", "listview" ];
+  spacing: 0px;
+  padding: 0px;
+  expand: true;
+}
+
+/* ── Imagebox ────────────────────────────── */
+imagebox {
+  background-image: url("~/.config/rofi/image.png");
+  background-repeat: false;
+  size: 300px 625px;
+  // **CRITICAL FIX:** Explicitly set the width and height of the box.
+  width: 300px;
+  height: 625px;
+  // Also ensure no extra padding or margin on the right side.
+  padding: 0px;
+  margin: 0px;
+}
+
+/* ── Elements ────────────────────────────── */
+element {
+  border-radius: 0px;
+}
+
+element-text, element-icon {
+  padding: 6px 8px;
+  spacing: 2px;
+  text-color: #fab387; // Keeping original accent color for unselected text
+}
+
+element selected {
+  background-color: #363636; // Using the border color for selected item background
+  text-color: #ffffff; // Changed to white for better contrast, matching waybar text
+  border-radius: 2px;
+}
+
+/* ── Input & Prompt ──────────────────────── */
+prompt {
+  enabled: false;
+  background-color: transparent;
+  text-color: #61afef;
+  padding: 5px 10px;
+}
+
+entry {
+  padding: 8px;
+  expand: false;
+  font: "JetBrainsMono Nerd Font 12";
+  text-color: #ffffff; // Changed to white, matching waybar text
+  border-radius: 2px 2px 0px 0px; // Rounded only on top edges
+  background-color: #141414; // Solid black input field, matching waybar background
+}
+
+/* ── Listview ────────────────────────────── */
+listview {
+  lines: 1;
+  background-color: #141414; // Solid black background, matching entry and window
+  border-radius: 0px 0px 2px 2px; // Rounded only on bottom edges
+  padding: 5px;
+}
