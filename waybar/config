@@ -1,0 +1,38 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "modules-left": ["custom/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "custom/disk", "memory", "cpu"],
+
+  "custom/workspaces": {
+    "exec": "~/.config/waybar/scripts/hypr_workspaces.sh",
+    "interval": 1,
+    "escape": false
+  },
+
+  "clock": {
+    "format": "{:%a, %d %b | %H:%M}"
+  },
+
+  "pulseaudio": {
+    "format": "   {volume}%"
+  },
+
+  "custom/disk": {
+    "exec": "~/.config/waybar/scripts/disk.sh",
+    "interval": 60,
+    "format": " | {}",
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": " | RAM {used}G",
+  },
+
+  "cpu": {
+    "format": " | CPU {usage}%"
+  }
+}
+

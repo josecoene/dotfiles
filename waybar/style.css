@@ -1,0 +1,53 @@
+/* Base waybar style */
+waybar * {
+  border: 4px;
+  border-radius: 4px;
+  min-height: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+}
+#waybar {
+  background-color: #0a0b0c; /* pure black background */
+  border-radius: 2px;
+  opacity: 1.0;
+}
+window#waybar {
+  background: #141414; /* solid black */
+  color: #ffffff;      /* white text */
+  border: 3px solid #363636; /* white border around entire bar */
+  border-radius: 0;    /* makes it a clean rectangle */
+  margin: 0;           /* ensures no gaps on edges */
+  padding: 0 0 0 4px;          /* no extra space */
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* Left modules */
+#workspaces {
+  background-color: transparent;
+  padding-left: 8px;
+  margin: 0;
+}
+
+/* Clock center */
+#clock {
+    font-weight: bold;
+}
+
+/* Right modules spacing */
+#pulseaudio {
+    margin-left: 12px;
+    /* Adding padding to create space *inside* the module. 
+       This helps space the icon from the text/value. */
+    padding: 0 4px; /* Adjust 4px as needed for more space */
+}
+
+#pulseaudio, #memory, #cpu {
+    /* Keep shared spacing for modules on the right */
+    margin-left: 12px;
+}
+
+/* Ensure the very last module on the right has the final margin */
+#cpu {
+    margin-right: 8px;
+}
