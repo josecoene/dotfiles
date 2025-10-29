@@ -1,15 +1,32 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 28,
-  "modules-left": ["custom/workspaces"],
+  "height": 42,
+
+  "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
   "modules-right": ["pulseaudio", "custom/disk", "memory", "cpu"],
 
-  "custom/workspaces": {
-    "exec": "~/.config/waybar/scripts/hypr_workspaces.sh",
-    "interval": 1,
-    "escape": false
+  "hyprland/workspaces": {
+    "all-outputs": false,
+    "format": "{name} <span font_size='8pt'>{windows}</span>",
+    "show-special": true,
+    "special-visible-only": true,
+    "window-rewrite-default": "",
+    "window-rewrite": {
+      "class<firefox>": "",
+      "alacritty": "",
+      "class<alacritty> title<vim.*>": "",
+      "obsidian": "󰠮",
+      "code": "󰨞",
+      "title<btop>": "󰊚",
+      "KeePassXC": "",
+      "music": "",
+      "nautilus": "",
+      "steam": "",
+      "discord": "",
+      "heroic": ""
+    }
   },
 
   "clock": {
@@ -23,12 +40,12 @@
   "custom/disk": {
     "exec": "~/.config/waybar/scripts/disk.sh",
     "interval": 60,
-    "format": " | {}",
+    "format": " | {}"
   },
 
   "memory": {
     "interval": 5,
-    "format": " | RAM {used}G",
+    "format": " | RAM {used}G"
   },
 
   "cpu": {
